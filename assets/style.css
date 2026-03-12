@@ -186,3 +186,35 @@ footer nav ul {
 	margin: 2em
 }
 
+/* Conteneur filtres centrer */
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 50px;
+}
+
+/* Style des boutons */
+.filters__btn {
+    font-family: 'Syne';
+    font-weight: 700;
+    color: #1D6154;
+    background-color: white;
+    border: 1px solid #1D6154;
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Style du bouton selec */
+.filters__btn--active {
+    background-color: #1D6154;
+    color: white;
+}
+
+/*effet survol */
+.filters__btn:hover {
+    background-color: #1D6154;
+    color: white;
+}
