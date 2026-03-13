@@ -7,6 +7,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
       rel="stylesheet"
     />
@@ -14,6 +21,10 @@
     <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body>
+    <div class="edit-bar">
+      <i class="fa-regular fa-pen-to-square"></i>
+      <p>Mode édition</p>
+    </div>
     <header>
       <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
       <nav>
@@ -50,7 +61,12 @@
         </article>
       </section>
       <section id="portfolio">
-        <h2>Mes Projets</h2>
+        <div class="portfolio__header">
+          <h2>Mes Projets</h2>
+          <a href="#" class="edit__btn">
+            <i class="fa-regular fa-pen-to-square"></i>modifier
+          </a>
+        </div>
         <div class="filters"></div>
         <div class="gallery"></div>
       </section>
@@ -77,5 +93,6 @@
       </nav>
     </footer>
     <script src="./assets/Javascripts/works-categories.js"></script>
+    <script src="./assets/Javascripts/admin.js"></script>
   </body>
 </html>
