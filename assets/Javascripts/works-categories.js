@@ -7,8 +7,8 @@ async function init() {
         return false; //pas de reponse = arret fonction
     }
 
-    createFilters(categories); //cree boutons
-    showWorks(tousLesProjets); //affiche tout au debut
+    createFilters(categories);
+    showWorks(tousLesProjets);
     
     return true;
 }
@@ -81,7 +81,7 @@ function createFilters(categories) {
         btn.addEventListener('click', () => {
             updateFilterUI(btn);
             const filtres = tousLesProjets.filter(p => p.categoryId === cat.id);
-            showWorks(filtres); //Affiche seulement la catégorie selec
+            showWorks(filtres);
         });
         filtersContainer.appendChild(btn);
     });
@@ -94,5 +94,12 @@ function updateFilterUI(selectedBtn) {
     buttons.forEach(b => b.classList.remove('filters__btn--active'));
     selectedBtn.classList.add('filters__btn--active');
 }
+
+async function updateGallery() {
+    tousLesProjets = await getWorks();
+    showWorks(tousLesProjets);
+}
+
+window.updateGallery = updateGallery;
 
 init();

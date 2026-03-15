@@ -153,9 +153,7 @@ li:hover {
 #introduction p {
     margin-bottom: 0.5em;
 }
-#portfolio h2 {
-    text-align: center;
-}
+
 .gallery {
     width: 100%;
     display: grid;
@@ -166,6 +164,9 @@ li:hover {
 
 .gallery img {
     width: 100%;
+    height: 48.5rem;
+    object-fit: cover;
+    display: block;
 }
 #contact {
     width: 50%;
@@ -230,7 +231,6 @@ footer li {
     color: black;
 }
 
-/* Conteneur filtres centrer */
 .filters {
     display: flex;
     justify-content: center;
@@ -238,7 +238,6 @@ footer li {
     margin-bottom: 50px;
 }
 
-/* Style des boutons */
 .filters__btn {
     font-family: 'Syne';
     font-weight: 700;
@@ -251,20 +250,16 @@ footer li {
     text-align: center;
 }
 
-/* Style du bouton selec */
 .filters__btn--active {
     background-color: #1D6154;
     color: white;
 }
 
-/*effet survol */
 .filters__btn:hover {
     background-color: #1D6154;
     color: white;
 }
 
-
-/* login */
 .login {
     max-width: 38rem; 
     margin: 10% auto;
@@ -348,7 +343,7 @@ footer li {
 }
 
 .portfolio__header h2 {
-    margin-bottom: 0;
+    margin: 0;
 }
 
 .edit__btn {
@@ -362,3 +357,132 @@ footer li {
     font-weight: 400;
     gap: 0.8rem;
 }
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2000;
+}
+
+.modal__wrapper {
+    background-color: white;
+    width: 63rem;
+    max-width: 90%;
+    padding: 3rem;
+    border-radius: 1rem;
+    position: relative;
+}
+
+.modal__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.modal__back, .modal__close {
+    background: none; border: none;
+    font-size: 2rem; cursor: pointer;
+}
+
+/* Vues */
+.modal__view {
+    display: flex; flex-direction: column;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.modal__title {
+    font-family: 'Work Sans'; font-size: 2.6rem;
+    margin-bottom: 4.5rem; font-weight: 400;
+}
+
+.modal__gallery {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.8rem; width: 100%;
+}
+
+
+.modal__gallery-item {
+    position: relative;
+    width: 100%;
+}
+
+.modal__gallery-item img {
+    width: 100%;
+    height: 13rem;
+    object-fit: cover;
+    display: block;
+}
+
+.modal__trash {
+    position: absolute;
+    top: 0.5rem; right: 0.5rem;
+    background-color: black;
+    color: white;
+    width: 1.7rem; height: 1.7rem;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 0.2rem;
+    font-size: 1rem; cursor: pointer;
+}
+
+/* Formul ajout */
+.modal__form { width: 100%; display: flex; flex-direction: column; }
+
+.modal__dropzone {
+    background-color: #E8F1F6;
+    border-radius: 0.3rem;
+    height: 16.9rem;
+    display: flex;
+    align-items: center; justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.modal__dropzone-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+
+.modal__dropzone i { font-size: 7.6rem; color: #B9C5CC; }
+
+.modal__dropzone-label {
+    background-color: #CBD6DC;
+    color: #306685;
+    padding: 1rem 3.3rem;
+    border-radius: 5rem;
+    font-weight: 600; cursor: pointer;
+}
+
+.modal__dropzone p { font-size: 1rem; color: #444444; }
+
+.modal__preview { max-height: 100%; object-fit: contain; }
+
+.modal__inputs label { margin: 2rem 0 1rem 0; display: block; }
+
+.modal__inputs input, .modal__inputs select {
+    width: 100%; height: 5rem;
+    border: none; box-shadow: 0 0.4rem 1.4rem rgba(0, 0, 0, 0.09);
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+}
+
+.modal__separator { width: 100%; border: 0; border-top: 1px solid #B3B3B3; margin: 4.5rem 0 3.5rem 0; }
+
+.modal__btn, .modal__btn--submit {
+    font-family: 'Syne'; border: none; border-radius: 6rem;
+    width: 23.7rem; height: 3.6rem; cursor: pointer;
+    color: white; font-weight: 700; align-self: center;
+}
+
+.modal__btn { background-color: #1D6154; }
+.modal__btn--submit { background-color: #1D6154; }
+.modal__btn--submit:disabled { background-color: #A7A7A7; cursor: not-allowed; }

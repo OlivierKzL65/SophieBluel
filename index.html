@@ -92,7 +92,80 @@
         </ul>
       </nav>
     </footer>
+    <aside id="modal" class="modal" style="display: none">
+      <div class="modal__wrapper">
+        <div class="modal__header">
+          <button class="modal__back js-modal-back">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <button class="modal__close js-modal-close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div id="modal-view-gallery" class="modal__view">
+          <h3 class="modal__title">Galerie photo</h3>
+          <div class="modal__gallery js-admin-gallery"></div>
+          <hr class="modal__separator" />
+          <button class="modal__btn js-modal-add-view">
+            Ajouter une photo
+          </button>
+        </div>
+
+        <div id="modal-view-add" class="modal__view" style="display: none">
+          <h3 class="modal__title">Ajout photo</h3>
+          <form
+            action="#"
+            method="post"
+            class="modal__form"
+            id="modal-add-form"
+          >
+            <div class="modal__dropzone js-dropzone">
+              <div class="modal__dropzone-content js-dropzone-content">
+                <i class="fa-regular fa-image"></i>
+                <label for="file-upload" class="modal__dropzone-label"
+                  >+ Ajouter photo</label
+                >
+                <input
+                  id="file-upload"
+                  type="file"
+                  name="image"
+                  accept="image/png, image/jpeg"
+                  style="display: none"
+                />
+                <p>jpg, png : 4mo max</p>
+              </div>
+              <img
+                src=""
+                alt="Aperçu"
+                class="modal__preview js-preview"
+                style="display: none"
+              />
+            </div>
+
+            <div class="modal__inputs">
+              <label for="title">Titre</label>
+              <input type="text" name="title" id="title" />
+
+              <label for="category">Catégorie</label>
+              <select name="category" id="category">
+                <option value=""></option>
+              </select>
+            </div>
+
+            <hr class="modal__separator" />
+            <input
+              type="submit"
+              value="Valider"
+              class="modal__btn--submit js-modal-submit"
+              disabled
+            />
+          </form>
+        </div>
+      </div>
+    </aside>
     <script src="./assets/Javascripts/works-categories.js"></script>
     <script src="./assets/Javascripts/admin.js"></script>
+    <script src="./assets/Javascripts/modal.js"></script>
   </body>
 </html>
