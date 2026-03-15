@@ -11,8 +11,7 @@ function initAdmin() {
     return true;
 }
 
-//affiche outils d'edit
-
+//affiche outil edit
 function activateAdminMode() {
     const editBar = document.querySelector(".edit-bar");
     if (editBar) editBar.style.display = "flex";
@@ -28,8 +27,7 @@ function activateAdminMode() {
 }
 
 //deco utilisateur
- 
-function handleLogout() {
+ function handleLogout() {
     const authLink = document.querySelector(".nav__link");
     if (!authLink) return;
 

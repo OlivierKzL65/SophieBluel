@@ -1,10 +1,10 @@
 let tousLesProjets = []; //garde liste pour le filtrage sans rappel api
 
 async function init() {
-    tousLesProjets = await getWorks(); //stocke resultat dans variable globale
-    const categories = await getCategories(); //recup les categories
+    tousLesProjets = await getWorks();
+    const categories = await getCategories();
     if (!tousLesProjets || !categories) {
-        return false; //pas de reponse = arret fonction
+        return false;
     }
 
     createFilters(categories);
@@ -22,7 +22,7 @@ async function getWorks() {
         return false;
     }
 }
-//recup les categories
+//recup les categorie
 async function getCategories() { 
     try {
         const response = await fetch('http://localhost:5678/api/categories');
@@ -45,7 +45,7 @@ function showWorks(listeProjets) {
         const image = document.createElement('img');
         const legende = document.createElement('figcaption');
 
-        //rempli l'api
+        //rempli api
         image.src = projet.imageUrl;
         image.alt = projet.title;
         legende.innerText = projet.title;
@@ -88,7 +88,7 @@ function createFilters(categories) {
     return true;
 }
 
-//changer couleur du bouton actif
+//changer couleur bouton actif
 function updateFilterUI(selectedBtn) {
     const buttons = document.querySelectorAll('.filters__btn');
     buttons.forEach(b => b.classList.remove('filters__btn--active'));

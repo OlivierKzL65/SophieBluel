@@ -1,4 +1,6 @@
+
 async function initModal() {
+
     const modal = document.querySelector('#modal');
     const openBtn = document.querySelector('.edit__btn');
     const closeBtn = document.querySelector('.js-modal-close');
@@ -15,11 +17,13 @@ async function initModal() {
         refreshModalData();
     });
 
+    // Ferme la modale clic surcroix
     closeBtn.addEventListener('click', () => {
         modal.style.display = 'none';
         resetModalForm();
     });
 
+    // Ferme modale si  clic en dehors
     window.addEventListener('click', (e) => {
         if (e.target === modal) {
             modal.style.display = 'none';
@@ -40,10 +44,12 @@ async function initModal() {
     return true;
 }
 
+// Met a jour les donnees affich dans modale (projets et catégories)
 async function refreshModalData() {
     const galleryContainer = document.querySelector('.js-admin-gallery');
     const categorySelect = document.querySelector('#category');
 
+    // Recup/affichage projets
     const works = await fetch("http://localhost:5678/api/works").then(res => res.json());
     galleryContainer.innerHTML = "";
     works.forEach(work => {
@@ -71,8 +77,10 @@ async function refreshModalData() {
     }
 }
 
+// Suppun projet bdd
 async function deleteWork(id) {
     const token = localStorage.getItem("token");
+    
     if (!confirm("Voulez-vous vraiment supprimer ce projet ?")) return;
 
     const response = await fetch(`http://localhost:5678/api/works/${id}`, {
@@ -88,17 +96,20 @@ async function deleteWork(id) {
     }
 }
 
+// Envoie nouveau projet a bdd
 async function submitWork() {
     const token = localStorage.getItem("token");
     const form = document.querySelector('#modal-add-form');
     const formData = new FormData(form);
 
+    //Appel API pour ajout
     const response = await fetch("http://localhost:5678/api/works", {
         method: "POST",
         headers: { "Authorization": `Bearer ${token}` },
         body: formData
     });
 
+    //succes = ferme-reset-mise a jour acceuil
     if (response.ok) {
         const modal = document.querySelector('#modal');
         modal.style.display = 'none';
@@ -112,6 +123,7 @@ async function submitWork() {
     }
 }
 
+// Gere changement affich entre la galerie et formulaire ajout
 function displayView(view) {
     const galleryView = document.querySelector('#modal-view-gallery');
     const addView = document.querySelector('#modal-view-add');
@@ -128,6 +140,7 @@ function displayView(view) {
     }
 }
 
+// Gere affichage aperçu de image selec
 function handleFilePreview() {
     const input = document.querySelector('#file-upload');
     const preview = document.querySelector('.js-preview');
@@ -145,6 +158,7 @@ function handleFilePreview() {
     }
 }
 
+// Reset form
 function resetModalForm() {
     const form = document.querySelector('#modal-add-form');
     const preview = document.querySelector('.js-preview');
@@ -163,12 +177,14 @@ function resetModalForm() {
     if (submitBtn) submitBtn.disabled = true;
 }
 
+// Verif champs remplis pour activer bouton valider
 function setupFormBehavior() {
     const input = document.querySelector('#file-upload');
     const title = document.querySelector('#title');
     const category = document.querySelector('#category');
     const submitBtn = document.querySelector('.js-modal-submit');
 
+    //verif champs
     const checkForm = () => {
         submitBtn.disabled = !(input.files[0] && title.value && category.value);
     };

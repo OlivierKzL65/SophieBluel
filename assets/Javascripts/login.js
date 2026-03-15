@@ -1,6 +1,4 @@
 //Login
-
-
 async function init() {
     const loginForm = document.querySelector('.login__form');
     if (!loginForm) return false;
@@ -18,8 +16,7 @@ async function init() {
 }
 
 //Gere envoi donnees/reponse API
- 
-async function handleLogin(form) {
+ async function handleLogin(form) {
     const email = form.querySelector('#email').value;
     const password = form.querySelector('#password').value;
 
