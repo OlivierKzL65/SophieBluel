@@ -1,3 +1,19 @@
+:root {
+    --primary-color: #1D6154;
+    --primary-hover: #0E2F28;
+    --secondary-color: #B1663C;
+    --bg-color: #FFFEF8;
+    --text-dark: #3D3D3D;
+    --text-light: #444444;
+    --white: #FFFFFF;
+    --black: #000000;
+    --gray-light: #B3B3B3;
+    --blue-dropzone: #E8F1F6;
+    --blue-dropzone-btn: #CBD6DC;
+    --blue-dropzone-text: #306685;
+    --disabled-gray: #A7A7A7;
+}
+
 html {
     font-size: 62.5%;
     scrollbar-gutter: stable;
@@ -39,9 +55,9 @@ body {
     flex-direction: column;
     min-height: 100vh;
     font-family: 'Work Sans';
-    font-size: 14px;  
+    font-size: 1.4rem;  
     line-height: 1;
-    background-color: #FFFEF8;
+    background-color: var(--bg-color);
 }
 
 header, main {
@@ -53,7 +69,7 @@ header, main {
 
 main { flex: 1; }
 
-section { margin: 50px 0; }
+section { margin: 5rem 0; }
 
 h1 {
     display: flex;
@@ -61,7 +77,7 @@ h1 {
     font-family: 'Syne';
     font-size: 2.2rem;
     font-weight: 800;
-    color: #B1663C;
+    color: var(--secondary-color);
     line-height: 0.8;
 }
 
@@ -77,20 +93,20 @@ h1 > span {
 h2 {
     font-family: 'Syne';
     font-weight: 700;
-    font-size: 30px;
-    color: #1D6154;
+    font-size: 3rem;
+    color: var(--primary-color);
 }
 
 /* HEADER */
 header {
     display: flex;
     justify-content: space-between;
-    margin: 50px auto;
+    margin: 5rem auto;
 }
 
 header nav a {
     text-decoration: none;
-    color: black;
+    color: var(--black);
 }
 
 nav ul {
@@ -106,16 +122,21 @@ nav li {
     font-size: 1.6rem;
     line-height: 1;
     text-align: center;
+    vertical-align: bottom;
 }
 
 nav li img {
     width: 2.2rem;
     height: 2.2rem;
     display: block;
-    filter: drop-shadow(0.1rem 0 0 black);
+    filter: drop-shadow(0.1rem 0 0 var(--black));
 }
 
-li:hover { color: #B1663C; }
+li:hover { 
+    color: var(--black); 
+    font-weight: 700; 
+}
+
 .nav--active { font-weight: 600; }
 
 /* SECTION INTRO */
@@ -123,7 +144,7 @@ li:hover { color: #B1663C; }
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 14rem;
 }
 
 #introduction figure, #introduction article {
@@ -137,7 +158,7 @@ li:hover { color: #B1663C; }
 }
 
 #introduction h2 { margin-bottom: 1em; }
-#introduction p { margin-bottom: 0.5em;color:#3D3D3D;width: 40.4rem; }
+#introduction p { margin-bottom: 1.5em; color: var(--text-dark); width: 40.4rem; }
 
 /* PORTFOLIO & FILTRES */
 .portfolio__header {
@@ -145,7 +166,7 @@ li:hover { color: #B1663C; }
     justify-content: center;
     align-items: center;
     gap: 3rem;
-    margin-bottom: 8%;
+    margin-bottom: 5rem;
 }
 
 .portfolio__header h2 { margin: 0; }
@@ -153,25 +174,31 @@ li:hover { color: #B1663C; }
 .filters {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-bottom: 50px;
+    gap: 1rem;
+    margin-bottom: 5rem;
 }
 
 .filters__btn {
     font-family: 'Syne';
     font-weight: 700;
-    color: #1D6154;
-    background-color: white;
-    border: 1px solid #1D6154;
-    border-radius: 25px;
-    padding: 10px 20px;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    background-color: var(--bg-color);
+    border: 0.1rem solid var(--primary-color);
+    border-radius: 2.5rem;
+    padding: 0.8rem 1.5rem;
     cursor: pointer;
     text-align: center;
 }
 
 .filters__btn--active, .filters__btn:hover {
-    background-color: #1D6154;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.filters__btn:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
 }
 
 .gallery {
@@ -181,7 +208,6 @@ li:hover { color: #B1663C; }
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 2rem;
     grid-row-gap: 2rem;
-    
 }
 
 .gallery img {
@@ -196,7 +222,7 @@ li:hover { color: #B1663C; }
     font-weight: 400;
     font-size: 1.3rem;
     line-height: 1;
-    color: #3D3D3D;
+    color: var(--text-dark);
     margin-top: 0.7rem;
 }
 
@@ -207,20 +233,20 @@ li:hover { color: #B1663C; }
 }
 
 #contact > * { text-align: center; }
-#contact h2 { margin-bottom: 20px; }
+#contact h2 { margin-bottom: 2rem; }
 
 #contact p {
     font-family: 'Work Sans';
     font-weight: 400;
     font-size: 1.4rem;
     line-height: 1;
-    color: #3D3D3D;
-    margin-bottom: 30px;
+    color: var(--text-dark);
+    margin-bottom: 3rem;
 }
 
 #contact form {
     text-align: left;
-    margin-top: 30px;
+    margin-top: 3rem;
     display: flex;
     flex-direction: column;
 }
@@ -230,23 +256,23 @@ li:hover { color: #B1663C; }
     font-weight: 500;
     font-size: 1.4rem;
     line-height: 1;
-    color: #3D3D3D;
+    color: var(--text-dark);
     margin: 2rem 0 0.7rem 0;
     display: block;
 }
 
 #contact input {
-    height: 50px;
+    height: 5rem;
     font-size: 1.2em;
     border: none;
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+    box-shadow: 0 0.4rem 1.4rem rgba(0, 0, 0, 0.09);
 }
 
 input[type="submit"] {
     font-family: 'Syne';
     font-weight: 700;
-    color: white;
-    background-color: #1D6154;
+    color: var(--white);
+    background-color: var(--primary-color);
     margin: 2rem auto;
     width: 22rem;
     height: 3rem;
@@ -257,9 +283,13 @@ input[type="submit"] {
     display: block;
 }
 
+input[type="submit"]:hover {
+    background-color: var(--primary-hover);
+}
+
 /* FOOTER */
 footer {
-    background-color: white;
+    background-color: var(--white);
     width: 100%;
 }
 
@@ -276,7 +306,7 @@ footer li {
     font-size: 1.4rem;
     font-weight: 300;
     line-height: 1;
-    color: black;
+    color: var(--black);
 }
 
 /* LOGIN */
@@ -289,7 +319,7 @@ footer li {
 .login__title {
     font-family: 'Syne';
     font-weight: 700;
-    color: #1D6154;
+    color: var(--primary-color);
     font-size: 3rem;
     margin-bottom: 3.5rem;
 }
@@ -303,7 +333,7 @@ footer li {
 .login__label {
     font-size: 1.4rem;
     margin-bottom: 1rem;
-    color: #3D3D3D;
+    color: var(--text-dark);
     font-weight: 600;
 }
 
@@ -311,8 +341,8 @@ footer li {
     height: 5rem;
     font-size: 1.6rem;
     border: none;
-    background: white;
-    box-shadow: 0px 0.4rem 1.4rem rgba(0, 0, 0, 0.09);
+    background: var(--white);
+    box-shadow: 0 0.4rem 1.4rem rgba(0, 0, 0, 0.09);
     margin-bottom: 3rem;
     padding-left: 1.5rem;
     box-sizing: border-box;
@@ -321,8 +351,8 @@ footer li {
 .login__submit {
     font-family: 'Syne';
     font-weight: 700;
-    color: white;
-    background-color: #1D6154;
+    color: var(--white);
+    background-color: var(--primary-color);
     margin: 1rem auto;
     width: 18rem;
     height: 3.8rem;
@@ -332,10 +362,14 @@ footer li {
     font-size: 1.4rem;
 }
 
+.login__submit:hover {
+    background-color: var(--primary-hover);
+}
+
 .login__link {
     display: block;
     font-size: 1.4rem;
-    color: #3D3D3D;
+    color: var(--text-dark);
     text-decoration: underline;
     text-align: center;
     margin-top: 1.5rem;
@@ -345,8 +379,8 @@ footer li {
 /* mode Edit */
 .edit-bar {
     display: none;
-    background-color: black;
-    color: white;
+    background-color: var(--black);
+    color: var(--white);
     width: 100%;
     height: 5.9rem;
     justify-content: center;
@@ -359,7 +393,7 @@ footer li {
     align-items: center;
     line-height: 1;
     text-decoration: none;
-    color: black;
+    color: var(--black);
     font-size: 1.4rem;
     font-family: 'Work Sans';
     font-weight: 400;
@@ -377,7 +411,7 @@ footer li {
 }
 
 .modal__wrapper {
-    background-color: white;
+    background-color: var(--white);
     width: 63rem;
     max-width: 90%;
     padding: 3rem;
@@ -431,8 +465,8 @@ footer li {
 .modal__trash {
     position: absolute;
     top: 0.5rem; right: 0.5rem;
-    background-color: black;
-    color: white;
+    background-color: var(--black);
+    color: var(--white);
     width: 1.7rem; height: 1.7rem;
     display: flex; align-items: center; justify-content: center;
     border-radius: 0.2rem;
@@ -447,7 +481,7 @@ footer li {
 }
 
 .modal__dropzone {
-    background-color: #E8F1F6;
+    background-color: var(--blue-dropzone);
     border-radius: 0.3rem;
     height: 16.9rem;
     display: flex;
@@ -469,15 +503,15 @@ footer li {
 .modal__dropzone i { font-size: 7.6rem; color: #B9C5CC; }
 
 .modal__dropzone-label {
-    background-color: #CBD6DC;
-    color: #306685;
+    background-color: var(--blue-dropzone-btn);
+    color: var(--blue-dropzone-text);
     padding: 1rem 3.3rem;
     border-radius: 5rem;
     font-weight: 600; 
     cursor: pointer;
 }
 
-.modal__dropzone p { font-size: 1rem; color: #444444; }
+.modal__dropzone p { font-size: 1rem; color: var(--text-light); }
 .modal__preview { max-height: 100%; object-fit: contain; }
 
 .modal__inputs label {
@@ -485,7 +519,7 @@ footer li {
     font-weight: 500;
     font-size: 1.4rem;
     line-height: 1;
-    color: #3D3D3D;
+    color: var(--text-dark);
     margin: 2rem 0 1rem 0;
     display: block;
 }
@@ -501,14 +535,14 @@ footer li {
     font-weight: 400;
     font-size: 1.4rem;
     line-height: 1;
-    color: #444444;
+    color: var(--text-light);
 }
 
 /* Modale - Separateur et Boutons */
 .modal__separator { 
     width: 100%; 
     border: 0; 
-    border-top: 1px solid #B3B3B3; 
+    border-top: 0.1rem solid var(--gray-light); 
     margin: 4.5rem 0 2rem 0; 
 }
 
@@ -518,14 +552,18 @@ footer li {
     font-family: 'Syne';
     font-weight: 700;
     font-size: 1.4rem;
-    background-color: #1D6154;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--white);
     border: none;
     border-radius: 6rem;
     cursor: pointer;
     display: block;
     margin: 0 auto;
     text-align: center;
+}
+
+.modal__btn:hover {
+    background-color: var(--primary-hover);
 }
 
 .modal__view input.modal__btn--submit {
@@ -534,8 +572,8 @@ footer li {
     font-family: 'Syne';
     font-weight: 700;
     font-size: 1.4rem;
-    color: white;
-    background-color: #1D6154;
+    color: var(--white);
+    background-color: var(--primary-color);
     border: none;
     border-radius: 6rem;
     cursor: pointer;
@@ -544,7 +582,11 @@ footer li {
     text-align: center;
 }
 
+.modal__view input.modal__btn--submit:not(:disabled):hover {
+    background-color: var(--primary-hover);
+}
+
 .modal__view input.modal__btn--submit:disabled {
-    background-color: #A7A7A7;
+    background-color: var(--disabled-gray);
     cursor: not-allowed;
 }
